@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { assets, orderDummyData } from "@/assets/assets";
@@ -7,7 +6,7 @@ import type { Order } from "@/types/models";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
-import Loading from "@/components/Loading";
+import Loading from "@/components/Loading/Loading";
 
 const Orders = () => {
   const { currency } = useAppContext();
@@ -35,15 +34,20 @@ const Orders = () => {
             {orders.map((order, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row gap-5 justify-between p-5 border-t border-gray-300"
-              >
+                className="flex flex-col md:flex-row gap-5 justify-between p-5 border-t border-gray-300">
                 <div className="flex-1 flex gap-5 max-w-80">
-                  <Image className="max-w-16 max-h-16 object-cover" src={assets.box_icon} alt="box_icon" />
+                  <Image
+                    className="max-w-16 max-h-16 object-cover"
+                    src={assets.box_icon}
+                    alt="box_icon"
+                  />
 
                   <p className="flex flex-col gap-3">
                     <span className="font-medium">
                       {order.items
-                        .map((item) => `${item.product.name} x ${item.quantity}`)
+                        .map(
+                          (item) => `${item.product.name} x ${item.quantity}`
+                        )
                         .join(", ")}
                     </span>
                     <span>Items : {order.items.length}</span>
@@ -52,7 +56,9 @@ const Orders = () => {
 
                 <div>
                   <p>
-                    <span className="font-medium">{order.address.fullName}</span>
+                    <span className="font-medium">
+                      {order.address.fullName}
+                    </span>
                     <br />
                     <span>{order.address.area}</span>
                     <br />
@@ -70,7 +76,9 @@ const Orders = () => {
                 <div>
                   <p className="flex flex-col">
                     <span>Method : COD</span>
-                    <span>Date : {new Date(order.date).toLocaleDateString()}</span>
+                    <span>
+                      Date : {new Date(order.date).toLocaleDateString()}
+                    </span>
                     <span>Payment : Pending</span>
                   </p>
                 </div>

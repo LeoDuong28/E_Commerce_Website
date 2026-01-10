@@ -1,15 +1,14 @@
-
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { assets } from "@/assets/assets";
 import type { Product } from "@/types/models";
-import ProductCard from "@/components/ProductCard";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ProductCard from "@/components/Products/ProductCard";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import Loading from "@/components/Loading";
+import Loading from "@/components/Loading/Loading";
 import { useAppContext } from "@/context/AppContext";
 
 const ProductPage = () => {
@@ -55,8 +54,7 @@ const ProductPage = () => {
                   key={index}
                   type="button"
                   onClick={() => setMainImage(image)}
-                  className="cursor-pointer rounded-lg overflow-hidden bg-gray-500/10"
-                >
+                  className="cursor-pointer rounded-lg overflow-hidden bg-gray-500/10">
                   <Image
                     src={image}
                     alt={productData.name}
@@ -70,15 +68,37 @@ const ProductPage = () => {
           </div>
 
           <div className="flex flex-col">
-            <h1 className="text-3xl font-medium text-gray-800/90 mb-4">{productData.name}</h1>
+            <h1 className="text-3xl font-medium text-gray-800/90 mb-4">
+              {productData.name}
+            </h1>
 
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-0.5">
-                <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                <Image className="h-4 w-4" src={assets.star_dull_icon} alt="star_dull_icon" />
+                <Image
+                  className="h-4 w-4"
+                  src={assets.star_icon}
+                  alt="star_icon"
+                />
+                <Image
+                  className="h-4 w-4"
+                  src={assets.star_icon}
+                  alt="star_icon"
+                />
+                <Image
+                  className="h-4 w-4"
+                  src={assets.star_icon}
+                  alt="star_icon"
+                />
+                <Image
+                  className="h-4 w-4"
+                  src={assets.star_icon}
+                  alt="star_icon"
+                />
+                <Image
+                  className="h-4 w-4"
+                  src={assets.star_dull_icon}
+                  alt="star_dull_icon"
+                />
               </div>
               <p>(4.5)</p>
             </div>
@@ -116,8 +136,7 @@ const ProductPage = () => {
             <div className="flex items-center mt-10 gap-4">
               <button
                 onClick={() => void addToCart(productData._id)}
-                className="w-full py-3.5 bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition"
-              >
+                className="w-full py-3.5 bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition">
                 Add to Cart
               </button>
 
@@ -126,8 +145,7 @@ const ProductPage = () => {
                   void addToCart(productData._id);
                   router.push("/cart");
                 }}
-                className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition"
-              >
+                className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition">
                 Buy now
               </button>
             </div>
@@ -137,7 +155,8 @@ const ProductPage = () => {
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center mb-4 mt-16">
             <p className="text-3xl font-medium">
-              Featured <span className="font-medium text-orange-600">Products</span>
+              Featured{" "}
+              <span className="font-medium text-orange-600">Products</span>
             </p>
             <div className="w-28 h-0.5 bg-orange-600 mt-2" />
           </div>
@@ -148,7 +167,9 @@ const ProductPage = () => {
             ))}
           </div>
 
-          <button type="button" className="px-8 py-2 mb-16 border rounded text-gray-500/70 hover:bg-slate-50/90 transition">
+          <button
+            type="button"
+            className="px-8 py-2 mb-16 border rounded text-gray-500/70 hover:bg-slate-50/90 transition">
             See more
           </button>
         </div>

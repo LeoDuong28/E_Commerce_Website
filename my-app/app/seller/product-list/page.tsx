@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { assets, productsDummyData } from "@/assets/assets";
@@ -7,7 +6,7 @@ import type { Product } from "@/types/models";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
-import Loading from "@/components/Loading";
+import Loading from "@/components/Loading/Loading";
 
 const ProductList = () => {
   const { router } = useAppContext();
@@ -36,10 +35,16 @@ const ProductList = () => {
             <table className="table-fixed w-full overflow-hidden">
               <thead className="text-gray-900 text-sm text-left">
                 <tr>
-                  <th className="w-2/3 md:w-2/5 px-4 py-3 font-medium truncate">Product</th>
-                  <th className="px-4 py-3 font-medium truncate max-sm:hidden">Category</th>
+                  <th className="w-2/3 md:w-2/5 px-4 py-3 font-medium truncate">
+                    Product
+                  </th>
+                  <th className="px-4 py-3 font-medium truncate max-sm:hidden">
+                    Category
+                  </th>
                   <th className="px-4 py-3 font-medium truncate">Price</th>
-                  <th className="px-4 py-3 font-medium truncate max-sm:hidden">Action</th>
+                  <th className="px-4 py-3 font-medium truncate max-sm:hidden">
+                    Action
+                  </th>
                 </tr>
               </thead>
 
@@ -59,16 +64,21 @@ const ProductList = () => {
                       <span className="truncate w-full">{product.name}</span>
                     </td>
 
-                    <td className="px-4 py-3 max-sm:hidden">{product.category}</td>
+                    <td className="px-4 py-3 max-sm:hidden">
+                      {product.category}
+                    </td>
                     <td className="px-4 py-3">${product.offerPrice}</td>
 
                     <td className="px-4 py-3 max-sm:hidden">
                       <button
                         onClick={() => router.push(`/product/${product._id}`)}
-                        className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md"
-                      >
+                        className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md">
                         <span className="hidden md:block">Visit</span>
-                        <Image className="h-3.5" src={assets.redirect_icon} alt="redirect_icon" />
+                        <Image
+                          className="h-3.5"
+                          src={assets.redirect_icon}
+                          alt="redirect_icon"
+                        />
                       </button>
                     </td>
                   </tr>
