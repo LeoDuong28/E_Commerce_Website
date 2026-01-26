@@ -2,6 +2,7 @@ import { addressDummyData } from "@/assets/assets";
 import { useAppContext } from "@/context/AppContext";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const OrderSummary = () => {
   const {
@@ -30,14 +31,14 @@ const OrderSummary = () => {
       if (data.success) {
         setUserAddresses(data.addresses);
 
-        if (data.address.length > 0) {
-          setSelectedAddress(data.address[0]);
+        if (data.addresses.length > 0) {
+          setSelectedAddress(data.addresses[0]);
         }
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(data.message);
+      toast.error(error.message);
     }
   };
 
@@ -111,7 +112,7 @@ const OrderSummary = () => {
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
               <span>
                 {selectedAddress
-                  ? `${selectedAddress.fullName}, ${selectedAddress.area}, ${selectedAddress.city}, ${selectedAddress.state}`
+                  ? `${selectedAddress.fullname}, ${selectedAddress.area}, ${selectedAddress.city}, ${selectedAddress.state}`
                   : "Select Address"}
               </span>
               <svg
@@ -138,7 +139,7 @@ const OrderSummary = () => {
                     key={index}
                     className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer"
                     onClick={() => handleAddressSelect(address)}>
-                    {address.fullName}, {address.area}, {address.city},{" "}
+                    {address.fullname}, {address.area}, {address.city},{" "}
                     {address.state}
                   </li>
                 ))}

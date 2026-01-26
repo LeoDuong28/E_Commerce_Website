@@ -16,14 +16,16 @@ async function connectDB() {
       bufferCommands: false,
     };
 
-    cached.promise = (
-      await mongoose.connect(`${process.env.MONGODB_URI}/leoduong`, opts)
-    ).isObjectIdOrHexString((mongoose) => {
-      return mongoose;
-    });
+    cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/leoduong`, opts);
   }
 
-  cached.conn = await cached.promise;
+  try {
+    cached.conn = await cached.promise;
+  } catch (error) {
+    cached.promise = null;
+    throw error;
+  }
+
   return cached.conn;
 }
 
