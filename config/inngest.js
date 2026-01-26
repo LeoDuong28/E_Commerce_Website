@@ -26,7 +26,7 @@ export const syncUserCreation = inngest.createFunction(
     };
     await connectDB();
     await User.create(userData);
-  }
+  },
 );
 
 // Inngeast Functiont to updata user data in database
@@ -49,7 +49,7 @@ export const syncUserUpdation = inngest.createFunction(
     };
     await connectDB();
     await User.findByIdAndUpdate(id, userData);
-  }
+  },
 );
 
 // Inngest Function to delete user from database
@@ -66,7 +66,7 @@ export const syncUserDeletion = inngest.createFunction(
 
     await connectDB();
     await User.findByIdAndDelete(id);
-  }
+  },
 );
 
 // Inngest Function to create user's order in database
@@ -74,7 +74,7 @@ export const createUserOrder = inngest.createFunction(
   {
     id: "create-user-order",
     batchEvents: {
-      maxSize: 25,
+      maxSize: 5,
       timeout: "5s",
     },
   },
@@ -94,5 +94,5 @@ export const createUserOrder = inngest.createFunction(
     await Order.insertMany(orders);
 
     return { success: true, processed: orders.length };
-  }
+  },
 );

@@ -7,7 +7,11 @@ import {
   createUserOrder,
 } from "@/config/inngest";
 
-export const { GET, POST, PUT } = serve({
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 60;
+
+const handler = serve({
   client: inngest,
   functions: [
     syncUserCreation,
@@ -15,4 +19,9 @@ export const { GET, POST, PUT } = serve({
     syncUserDeletion,
     createUserOrder,
   ],
+  signingKey: process.env.INNGEST_SIGNING_KEY,
 });
+
+export const GET = handler.GET;
+export const POST = handler.POST;
+export const PUT = handler.PUT;
