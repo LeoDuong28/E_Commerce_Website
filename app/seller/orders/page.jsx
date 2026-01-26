@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
 import Loading from "@/components/Loading";
-import { headers } from "next/headers";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Orders = () => {
   const { currency, getToken, user } = useAppContext();
@@ -70,7 +71,7 @@ const Orders = () => {
                 <div>
                   <p>
                     <span className="font-medium">
-                      {order.address.fullName}
+                      {order.address.fullname}
                     </span>
                     <br />
                     <span>{order.address.area}</span>
