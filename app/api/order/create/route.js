@@ -1,6 +1,8 @@
 import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import Product from "@/models/Product";
+import User from "@/models/User";
+import connectDB from "@/config/db";
 import { inngest } from "../../../../config/inngest";
 
 export async function POST(request) {
@@ -9,8 +11,10 @@ export async function POST(request) {
     const { address, items } = await request.json();
 
     if (!address || items.length === 0) {
-      return NextResponse.json({ success: false, messsage: "Invalid data" });
+      return NextResponse.json({ success: false, message: "Invalid data" });
     }
+
+    await connectDB();
 
     const amount = await items.reduce(async (acc, item) => {
       const product = await Product.findById(item.product);
