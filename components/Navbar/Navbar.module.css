@@ -1,0 +1,462 @@
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 0.75rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 0.75rem 8rem;
+  }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 48px;
+  }
+}
+
+.navLinks {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+  }
+}
+
+.navLink {
+  position: relative;
+  font-size: 0.95rem;
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #111827;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1877f2;
+  transition: width 0.2s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.sellerBtn {
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sellerBtn:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.actions {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .actions {
+    display: flex;
+  }
+}
+
+.iconSvg {
+  color: #4b5563;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.closeIconSvg {
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.iconBtn:hover {
+  background: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.iconBtn:hover .iconSvg {
+  color: #1877f2;
+  transform: scale(1.1);
+}
+
+.iconBtn:active {
+  transform: scale(0.95);
+}
+
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cartBtn:hover {
+  background: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.cartBtn:hover .iconSvg {
+  color: #1877f2;
+  transform: scale(1.1);
+}
+
+.cartBtn:active {
+  transform: scale(0.95);
+}
+
+.cartBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: #1877f2;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: badgePop 0.3s ease;
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.searchForm:focus-within {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+}
+
+.searchInput {
+  width: 160px;
+  max-width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+@media (min-width: 1024px) {
+  .searchInput {
+    width: 200px;
+  }
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.searchSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.searchSubmit:hover {
+  transform: scale(1.1);
+}
+
+.searchSubmit:hover .iconSvg {
+  color: #1877f2;
+}
+
+.searchClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.searchClose:hover {
+  transform: scale(1.1);
+}
+
+.searchClose:hover .closeIconSvg {
+  color: #ef4444;
+}
+
+.mobileActions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .mobileActions {
+    display: none;
+  }
+}
+
+.menuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.menuBtn:hover {
+  background: #f3f4f6;
+}
+
+.menuBtn:hover .iconSvg {
+  color: #1877f2;
+}
+
+.menuBtn:active {
+  transform: scale(0.95);
+}
+
+.mobileSearchBar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 40;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .mobileSearchBar {
+    display: none;
+  }
+}
+
+.mobileSearchForm {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  border-radius: 24px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.mobileSearchForm:focus-within {
+  border-color: #1877f2;
+}
+
+.mobileSearchIcon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.mobileSearchInput {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+}
+
+.mobileSearchInput::placeholder {
+  color: #9ca3af;
+}
+
+.mobileSearchClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobileSearchClose:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  animation: slideDown 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNavLink {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  color: #374151;
+  text-decoration: none;
+  border-bottom: 1px solid #f3f4f6;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  background: #f9fafb;
+  color: #1877f2;
+  padding-left: 2rem;
+}
+
+.mobileSellerBtn {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  color: #1877f2;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobileSellerBtn:hover {
+  background: #f9fafb;
+  padding-left: 2rem;
+}
